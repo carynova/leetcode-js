@@ -14,14 +14,14 @@ var findMedianSortedArrays = function(nums1, nums2) {
     var numA, numB
     var numBPos = -1
 
-    while(numBPos <= totalLen/2) {
+    while(numBPos < totalLen/2) {
         numA = numB
 
         // get the next
-        if (nums1[0] > nums2[0]) {
-            numB = nums2.shift()
-        } else {
+        if (!nums2.length || nums1.length && nums1[0] < nums2[0]) {
             numB = nums1.shift()
+        } else {
+            numB = nums2.shift()
         }
 
         // count position of numB
@@ -29,7 +29,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
     }
 
     if (totalLen & 1) {
-        return numB
+        return numA
     } else {
         return (numA + numB) / 2
     }
