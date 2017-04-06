@@ -13,10 +13,10 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    var tmpMap = []
+    var tmpMap = [];
     for (var i = 0, len = nums.length; i < len; i++) {
-        var tmp = target - nums[i]
-        if (tmpMap[tmp] !== undefined) return [tmpMap[tmp], i]
-        tmpMap[nums[i]] = i
+        var tmp = target - nums[i];
+        if (tmpMap[tmp] !== undefined) return [tmpMap[tmp], i];
+        tmpMap[nums[i]] = i;
     }
 };
