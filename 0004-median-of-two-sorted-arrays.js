@@ -10,27 +10,27 @@
  */
 var findMedianSortedArrays = function(nums1, nums2) {
     // compute the position
-    var totalLen = nums1.length + nums2.length
-    var numA, numB
-    var numBPos = -1
+    var totalLen = nums1.length + nums2.length;
+    var numA, numB;
+    var numBPos = -1;
 
     while(numBPos < totalLen/2) {
-        numA = numB
+        numA = numB;
 
         // get the next
         if (!nums2.length || nums1.length && nums1[0] < nums2[0]) {
-            numB = nums1.shift()
+            numB = nums1.shift();
         } else {
-            numB = nums2.shift()
+            numB = nums2.shift();
         }
 
         // count position of numB
-        numBPos++
+        numBPos++;
     }
 
     if (totalLen & 1) {
-        return numA
+        return numA;
     } else {
-        return (numA + numB) / 2
+        return (numA + numB) / 2;
     }
 };
