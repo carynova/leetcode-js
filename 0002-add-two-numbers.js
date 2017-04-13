@@ -19,44 +19,45 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
-  var answer,
-    p;
-  var carry = 0;
+  var answer, p
+  var carry = 0
 
   while (l1 || l2) {
     // 1. add
     var a = l1
       ? l1.val
-      : 0;
+      : 0
     var b = l2
       ? l2.val
-      : 0;
-    var sum = a + b + carry;
+      : 0
+    var sum = a + b + carry
     carry = sum >= 10
       ? 1
-      : 0;
+      : 0
 
     // 2. store result
-    var node = new ListNode(sum % 10);
+    var node = new ListNode(sum % 10)
     if (!answer) {
-      answer = p = node;
+      answer = p = node
     } else {
-      p.next = node;
-      p = node;
+      p.next = node
+      p = node
     }
 
     // 3. to the next
-    if (l1) 
-      l1 = l1.next;
-    if (l2) 
-      l2 = l2.next;
-  }
-  
-  // notice if carry is produced at the last add op, linkedlist will be extended
-  if (carry) {
-    var node = new ListNode(carry);
-    p.next = node;
+    if (l1) {
+      l1 = l1.next
+    }
+    if (l2) {
+      l2 = l2.next
+    }
   }
 
-  return answer;
-};
+  // notice if carry is produced at the last add op, linkedlist will be extended
+  if (carry) {
+    var node = new ListNode(carry)
+    p.next = node
+  }
+
+  return answer
+}
